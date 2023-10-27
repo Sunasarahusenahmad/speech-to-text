@@ -1,6 +1,7 @@
 .container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+
   justify-content: space-between;
   align-items: center;
   gap: 2.8rem;
@@ -15,7 +16,23 @@
 }
 
 .headIcon {
-  color: indianred;
+  color: linear-gradient(45deg, #f86f42, #faf9fe, #5ab54c);
+}
+
+.selectLanguage {
+  margin-top: 25px;
+  font-size: 13px;
+}
+
+.audioInput {
+  color: #111;
+  font-size: 14px;
+  margin: 5px auto;
+  padding: 1.5rem 2rem;
+  border-radius: 0.2rem;
+  background: linear-gradient(45deg, #f86f42, #faf9fe, #5ab54c);
+  border: none;
+  width: 100%;
 }
 
 .mainContent {
@@ -24,7 +41,22 @@
   min-height: 40rem;
   height: auto;
   padding: 1.8rem 1.8rem 12rem;
-  position: relative;
+  resize: none;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  background: rgb(255 255 255);
+  border-radius: 5px;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  line-height: 1.6;
+}
+.mainContentAudio {
+  max-width: 65rem;
+  width: 100%;
+  min-height: 40rem;
+  height: auto;
+  margin-top: 25px;
+  padding: 1.8rem 1.8rem 12rem;
   resize: none;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
   background: rgb(255 255 255);
@@ -40,16 +72,12 @@
   outline: none;
 }
 
-p {
-  font-size: 1.2rem;
-}
-
 .btn {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
-  gap: 4rem;
+  gap: 2rem;
   margin-top: -9.2rem;
   z-index: 2;
 }
@@ -61,9 +89,9 @@ button {
   gap: 1rem;
   padding: 1rem 3rem;
   border: none;
-  background: indianred;
-  color: aliceblue;
-  font-size: 2rem;
+  background: linear-gradient(45deg, #f86f42, #faf9fe, #5ab54c);
+  color: black;
+  font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: 0.5px;
   border-radius: 5px;
@@ -72,7 +100,6 @@ button {
 }
 
 @media screen and (max-width: 430px) {
-
   .container {
     padding: 2rem 0;
   }
@@ -90,7 +117,7 @@ button {
   }
 
   .btn {
-    /* flex-direction: column; */
+    flex-direction: column;
     gap: 1rem;
     margin-top: 0;
   }
@@ -102,7 +129,6 @@ button {
 }
 
 @media screen and (max-width: 325px) {
-
   .container {
     padding: 2rem 0;
     gap: 1.4rem;

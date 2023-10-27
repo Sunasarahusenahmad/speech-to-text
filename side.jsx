@@ -57,14 +57,10 @@ const App = () => {
   ];
 
   useEffect(() => {
-    if (selectedLanguage && !isListening) {
+    if (selectedLanguage) {
       setTargetLanguage(selectedLanguage.value);
     }
-  }, [selectedLanguage, isListening]);
-
-  const handleClear = () => {
-    setCopyTxt(""); // Clear the clipboard content
-  };
+  }, [selectedLanguage]);
 
   if (!browserSupportsSpeechRecognition) {
     return alert("no browser support");
@@ -83,15 +79,15 @@ const App = () => {
         <Select
           options={languageOptions}
           value={selectedLanguage}
-          onChange={(selectedOption) => {
-            if (!isListening) {
-              setSelectedLanguage(selectedOption);
-            }
-          }}
+          onChange={(selectedOption) => setSelectedLanguage(selectedOption)}
           placeholder="Select a language"
-          isDisabled={isListening}
         />
-        <div className={styles.mainContent}>{transcript}</div>
+        <div
+          className={styles.mainContent}
+          onClick={() => setCopyTxt(transcript)}
+        >
+          {transcript}
+        </div>
         <div className={styles.btn}>
           <button
             onClick={isListening ? stopListening : startListening}
@@ -113,7 +109,6 @@ const App = () => {
             <BiSolidCopyAlt />
             {isCopied ? " Copied" : " Copy to clipboard"}
           </button>
-          <button onClick={handleClear}>Clear</button>
         </div>
       </div>
     </>
